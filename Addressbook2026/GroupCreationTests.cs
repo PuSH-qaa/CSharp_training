@@ -1,7 +1,5 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
 
 namespace Addressbook2026;
 
@@ -33,6 +31,7 @@ public class GroupCreationTests
     {
         OpenHomePage();
         EnterLoginAndPass(new AccountData("admin", "secret"));
+        OpenGroupPage();
         InitNewGroupCreation();
         CreateNewGroup(new GroupData(
             random.Next(1, 999).ToString()
@@ -74,6 +73,10 @@ public class GroupCreationTests
         webDriver.FindElement(By.Name("pass")).Clear();
         webDriver.FindElement(By.Name("pass")).SendKeys(accountData.Password);
         webDriver.FindElement(By.XPath("//input[@value='Login']")).Submit();
+    }
+
+    private void OpenGroupPage()
+    {
         webDriver.FindElement(By.XPath("//*[normalize-space()='groups']")).Click();
     }
 
