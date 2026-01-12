@@ -1,6 +1,6 @@
 ﻿namespace Addressbook2026;
 
-internal class ContactData
+public class ContactData
 {
     public ContactData(string firstName, string lastName)
     {

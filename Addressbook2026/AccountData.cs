@@ -1,6 +1,6 @@
 ﻿namespace Addressbook2026;
 
-internal class AccountData
+public class AccountData
 {
     public AccountData(string username, string password) 
     {

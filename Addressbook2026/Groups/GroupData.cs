@@ -1,6 +1,6 @@
 ﻿namespace Addressbook2026;
 
-internal class GroupData
+public class GroupData
 {
     public GroupData(string name)
     {
