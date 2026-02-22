@@ -6,8 +6,6 @@ public class GroupCreationTests : TestBase
     [Test]
     public void AddNewGroupTest()
     {
-        applicationManager.LoginHelper.OpenAddressbookPage();
-        applicationManager.LoginHelper.EnterLoginAndPass(new AccountData("admin", "secret"));
         applicationManager.NavigationHelper.ClickGroups();
         applicationManager.GroupHelper.InitNewGroupCreation();
         GroupData groupData = new GroupData(
@@ -15,6 +13,19 @@ public class GroupCreationTests : TestBase
             , random.Next(1, 999).ToString()
             , random.Next(1, 999).ToString());
         applicationManager.GroupHelper.CreateNewGroup(groupData);
-        applicationManager.GroupHelper.ClickHomePageAfterAnyActionWithGroup();
+        applicationManager.GroupHelper.ClickGroupPageAfterAnyActionWithGroup();
+    }
+
+    [Test]
+    public void AddNewGroupWithEmptyNamesTest()
+    {
+        applicationManager.NavigationHelper.ClickGroups();
+        applicationManager.GroupHelper.InitNewGroupCreation();
+        GroupData groupData = new GroupData(
+            ""
+            , ""
+            , "");
+        applicationManager.GroupHelper.CreateNewGroup(groupData);
+        applicationManager.GroupHelper.ClickGroupPageAfterAnyActionWithGroup();
     }
 }

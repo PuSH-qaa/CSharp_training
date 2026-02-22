@@ -25,11 +25,11 @@ public class LoginHelper : HelperBase
         webDriver.FindElement(By.Name("pass")).Click();
         webDriver.FindElement(By.Name("pass")).Clear();
         webDriver.FindElement(By.Name("pass")).SendKeys(accountData.Password);
-        webDriver.FindElement(By.XPath("//input[@value='Login']")).Submit();
+        webDriver.FindElement(By.XPath("//input[@value='Login']")).Click();
     }
 
     public void ClickLogout()
     {
-        webDriver.FindElement(By.XPath("//*[@name = 'logout']/a")).Submit();
+        webDriver.FindElement(By.XPath("//*[@name = 'logout']/a")).Click();
     }
 }

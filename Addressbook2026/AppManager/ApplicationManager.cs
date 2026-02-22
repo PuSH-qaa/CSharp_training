@@ -9,7 +9,6 @@ public class ApplicationManager
     public IWebDriver? webDriver;
     public string? baseURL;
 
-
     public LoginHelper? LoginHelper { get; set; }
 
     public NavigationHelper? NavigationHelper { get; set; }
@@ -17,8 +16,6 @@ public class ApplicationManager
     public GroupHelper? GroupHelper { get; set; }
 
     public ContactHelper? ContactHelper { get; set; }
-
-    
 
     public ApplicationManager()
     {

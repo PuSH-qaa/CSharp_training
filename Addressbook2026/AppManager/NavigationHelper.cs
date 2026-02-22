@@ -22,5 +22,4 @@ public class NavigationHelper : HelperBase
     {
         webDriver.FindElement(By.XPath("//*[@id= 'nav']//a[contains(normalize-space(), 'groups')]")).Click();
     }
-
 }

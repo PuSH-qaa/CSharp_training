@@ -15,6 +15,8 @@ public class GroupData
     }
 
     public string GroupName { get; set; }
+
     public string GroupHeader { get; set; }
+
     public string GroupFooter { get; set; }
 }

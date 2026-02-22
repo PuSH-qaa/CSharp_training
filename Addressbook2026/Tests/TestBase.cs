@@ -12,6 +12,9 @@ public class TestBase
         applicationManager = new ApplicationManager();
 
         random = new Random();
+
+        applicationManager.LoginHelper.OpenAddressbookPage();
+        applicationManager.LoginHelper.EnterLoginAndPass(new AccountData("admin", "secret"));
     }
 
     [TearDown]
