@@ -48,14 +48,8 @@ public class GroupHelper : HelperBase
 
     private void FillGroupData(GroupData groupData)
     {
-        webDriver.FindElement(By.Name("group_name")).Click();
-        webDriver.FindElement(By.Name("group_name")).Clear();
-        webDriver.FindElement(By.Name("group_name")).SendKeys(groupData.GroupName);
-        webDriver.FindElement(By.Name("group_header")).Click();
-        webDriver.FindElement(By.Name("group_header")).Clear();
-        webDriver.FindElement(By.Name("group_header")).SendKeys(groupData.GroupHeader);
-        webDriver.FindElement(By.Name("group_footer")).Click();
-        webDriver.FindElement(By.Name("group_footer")).Clear();
-        webDriver.FindElement(By.Name("group_footer")).SendKeys(groupData.GroupFooter);
+        InsertText(By.Name("group_name"), groupData.GroupName);
+        InsertText(By.Name("group_header"), groupData.GroupHeader);
+        InsertText(By.Name("group_footer"), groupData.GroupFooter);
     }
 }

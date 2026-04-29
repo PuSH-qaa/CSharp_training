@@ -44,11 +44,7 @@ public class ContactHelper : HelperBase
 
     private void FillContactData(ContactData contactData)
     {
-        webDriver.FindElement(By.Name("firstname")).Click();
-        webDriver.FindElement(By.Name("firstname")).Clear();
-        webDriver.FindElement(By.Name("firstname")).SendKeys(contactData.FirstName);
-        webDriver.FindElement(By.Name("lastname")).Click();
-        webDriver.FindElement(By.Name("lastname")).Clear();
-        webDriver.FindElement(By.Name("lastname")).SendKeys(contactData.LastName);
+        InsertText(By.Name("firstname"), contactData.FirstName);
+        InsertText(By.Name("lastname"), contactData.LastName);
     }
 }

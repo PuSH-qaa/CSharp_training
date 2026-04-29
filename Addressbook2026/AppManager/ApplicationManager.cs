@@ -6,8 +6,11 @@ namespace Addressbook2026;
 
 public class ApplicationManager
 {
-    public IWebDriver? webDriver;
-    public string? baseURL;
+    public IWebDriver webDriver;
+    public string baseURL;
+
+    private static ThreadLocal<ApplicationManager> app = 
+        new ThreadLocal<ApplicationManager>();
 
     public LoginHelper? LoginHelper { get; set; }
 
@@ -17,7 +20,7 @@ public class ApplicationManager
 
     public ContactHelper? ContactHelper { get; set; }
 
-    public ApplicationManager()
+    private ApplicationManager()
     {
         webDriver = new ChromeDriver();
         baseURL = "http://localhost/addressbook/";
@@ -28,9 +31,18 @@ public class ApplicationManager
         ContactHelper = new ContactHelper(webDriver);
     }
 
+
+    public static ApplicationManager GetInstance()
+    {
+        if(!app.IsValueCreated) 
+            app.Value = new ApplicationManager();
+
+        return app.Value;
+    }
+
     public void Stop()
     {
-        webDriver.Quit();
-        webDriver.Dispose();
+        webDriver?.Quit();
+        webDriver?.Dispose();
     }
 }

@@ -19,12 +19,8 @@ public class LoginHelper : HelperBase
 
     public void EnterLoginAndPass(AccountData accountData)
     {
-        webDriver.FindElement(By.Name("user")).Click();
-        webDriver.FindElement(By.Name("user")).Clear();
-        webDriver.FindElement(By.Name("user")).SendKeys(accountData.UserName);
-        webDriver.FindElement(By.Name("pass")).Click();
-        webDriver.FindElement(By.Name("pass")).Clear();
-        webDriver.FindElement(By.Name("pass")).SendKeys(accountData.Password);
+        InsertText(By.Name("user"), accountData.UserName);
+        InsertText(By.Name("pass"), accountData.Password);
         webDriver.FindElement(By.XPath("//input[@value='Login']")).Click();
     }
 

@@ -9,17 +9,7 @@ public class TestBase
     [SetUp]
     public void SetupTest()
     {
-        applicationManager = new ApplicationManager();
-
+        applicationManager = ApplicationManager.GetInstance();
         random = new Random();
-
-        applicationManager.LoginHelper.OpenAddressbookPage();
-        applicationManager.LoginHelper.EnterLoginAndPass(new AccountData("admin", "secret"));
-    }
-
-    [TearDown]
-    public void TeardownTest()
-    {
-        applicationManager.Stop();
     }
 }
