@@ -8,7 +8,7 @@ public class HelperBase
 
     public HelperBase(IWebDriver webDriver)
     {
-        this.webDriver = webDriver; 
+        this.webDriver = webDriver;
     }
 
     public void InsertText(By locator, string text)
@@ -18,6 +18,19 @@ public class HelperBase
             webDriver.FindElement(locator).Click();
             webDriver.FindElement(locator).Clear();
             webDriver.FindElement(locator).SendKeys(text);
+        }
+    }
+
+    public bool IsElementPresent(By by)
+    {
+        try 
+        {
+            webDriver.FindElement(by);
+            return true;
+        }
+        catch (NoSuchElementException)
+        { 
+            return false;
         }
     }
 }

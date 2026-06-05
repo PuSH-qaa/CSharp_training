@@ -1,7 +1,7 @@
 ﻿namespace Addressbook2026;
 
 [TestFixture]
-public class ContactRemovalTests : TestBase
+public class ContactRemovalTests : AuthTestBase
 {
     [Test]
     public void RemoveContactTest()

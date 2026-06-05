@@ -1,7 +1,7 @@
 ﻿namespace Addressbook2026;
 
 [TestFixture]
-public class EditGroupTests : TestBase
+public class EditGroupTests : AuthTestBase
 {
     [Test]
     public void EditGroupTest()

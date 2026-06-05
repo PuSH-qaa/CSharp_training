@@ -4,22 +4,27 @@ namespace Addressbook2026.Helpers;
 
 public class NavigationHelper : HelperBase
 {
-    public NavigationHelper(IWebDriver webDriver) : base(webDriver)
+    private string baseUrl;
+    public NavigationHelper(IWebDriver webDriver, string baseUrl) : base(webDriver)
     {
+        this.baseUrl = baseUrl;
     }
 
     public void ClickHome()
     {
-        webDriver.FindElement(By.XPath("//*[@id= 'nav']//a[contains(normalize-space(), 'home')]")).Click();
+        if (!(webDriver.Url == baseUrl))
+            webDriver.FindElement(By.XPath("//*[@id= 'nav']//a[contains(normalize-space(), 'home')]")).Click();
     }
 
     public void ClickAddNew()
     {
-        webDriver.FindElement(By.XPath("//*[@id= 'nav']//a[contains(normalize-space(), 'add new')]")).Click();
+        if (!(webDriver.Url == baseUrl + "/edit.php"))
+            webDriver.FindElement(By.XPath("//*[@id= 'nav']//a[contains(normalize-space(), 'add new')]")).Click();
     }
 
     public void ClickGroups()
     {
+        if (!(webDriver.Url == baseUrl + "/group.php" && IsElementPresent(By.Name("new"))))
         webDriver.FindElement(By.XPath("//*[@id= 'nav']//a[contains(normalize-space(), 'groups')]")).Click();
     }
 }

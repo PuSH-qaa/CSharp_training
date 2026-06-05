@@ -2,14 +2,19 @@
 
 public class TestBase
 {
-    protected Random? random;
+    protected Random? random = new();
 
     protected ApplicationManager applicationManager;
 
-    [SetUp]
-    public void SetupTest()
+    [OneTimeSetUp]
+    public void SetupApplicationManager()
     {
-        applicationManager = ApplicationManager.GetInstance();
-        random = new Random();
+        applicationManager = new ApplicationManager();
+    }
+
+    [OneTimeTearDown]
+    public void StopApplicationManager() 
+    {
+        applicationManager?.Stop();
     }
 }

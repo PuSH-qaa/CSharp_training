@@ -1,7 +1,7 @@
 ﻿namespace Addressbook2026;
 
 [TestFixture]
-public class ContactCreationTests : TestBase
+public class ContactCreationTests : AuthTestBase
 {
     [Test]
     public void AddNewContactTest()
