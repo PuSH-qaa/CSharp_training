@@ -46,10 +46,23 @@ public class GroupHelper : HelperBase
         webDriver.FindElement(By.XPath("//i[text() = 'return to the ']/*[normalize-space() = 'group page']")).Click();
     }
 
+    public List<GroupData> GetGroupList()
+    {
+        var groups = webDriver.FindElements(By.XPath("//span[input[@name='selected[]']]"));
+
+        var groupNames = groups
+            .Select(groupData => new GroupData(groupData.Text.Trim()))
+            .ToList();
+
+        return groupNames;
+    }
+
     private void FillGroupData(GroupData groupData)
     {
         InsertText(By.Name("group_name"), groupData.GroupName);
         InsertText(By.Name("group_header"), groupData.GroupHeader);
         InsertText(By.Name("group_footer"), groupData.GroupFooter);
     }
+
+
 }
